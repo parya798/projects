@@ -1,4 +1,3 @@
-from flask import jsonify 
 from memory.db_handler import Database_memory
 from memory.services import RamStatsService 
 from memory.api import app 
