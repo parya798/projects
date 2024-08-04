@@ -1,11 +1,11 @@
 from memory.db_handler import Database_memory
 from memory.services import RamStatsService 
-from memory.api import app 
+from memory.api import db_name, app
 
-if __name__ == "__main__": 
-    db = Database_memory("memory/ram_stats.db") 
-    db.initialize_db() 
-    
-    RamStatsService.record_ram_stats("memory/ram_stats.db") 
-    
-    app.run("0.0.0.0", 3000)
+db = Database_memory(db_name)
+
+db.initialize_db()
+
+RamStatsService.record_ram_stats(db_name)
+
+app.run("0.0.0.0", 3000)
